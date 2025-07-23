@@ -4,6 +4,11 @@ from google.genai import types
 from datetime import datetime
 import random
 
+# With this:
+import os
+api_key = st.secrets["api_key"]
+
+
 # Expanded FAQ as a single string (20+ Q&A)
 FAQ_LIST = [
     ("What are the accomodations options?", "Gregory University offers on-campus accommodations."),
@@ -54,7 +59,7 @@ with st.sidebar:
     st.header("Configuration")
     api_key = st.text_input(
         "Enter your Gemini API Key:",
-        value="AIzaSyCW1PdQ1gFLbOR8LMvZDdm7_s5mWlse6ig",
+        value=api_key,
         type="password",
         help="Get your API key from https://aistudio.google.com/app/apikey"
     )
